@@ -1,0 +1,16 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div>
+    <div>
+        {% for preguntas in prueba.preguntas_set.all %}
+            <div>
+                <h3>{{preguntas.pregunta}}</h3>
+            </div>
+        {% empty %}
+            No existe aún ninguna pregunta relacionado a la prueba.
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

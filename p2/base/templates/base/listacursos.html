@@ -1,0 +1,23 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<h1>Cursos</h1>
+<div>
+    <a href="{% url 'crear-curso' %}">Crear curso</a>
+    <div>
+        {% for curso in cursos %}
+            <div>
+                <h3><a href="/curso/{{curso.id}}">{{curso.nombre_curso}}</a></h3>
+                <a href="{% url 'actualizar-curso' curso.id %}">Actualizar curso</a>   
+                <a href="{% url 'eliminar-curso' curso.id %}">Eliminar curso</a>           
+                <!-- <h3>{{curso.id}} -- <a href="{% url 'curso' curso.id %}">{{curso.nombre_curso}}</a></h3> -->
+            </div>
+        {% empty %}
+            No existe aún ningún curso añadido.
+            <a href="{% url 'crear-curso' %}">Crear curso</a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
